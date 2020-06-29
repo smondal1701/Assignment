@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css"
+	href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+<style type="text/css">
+.container {
+	margin-top: 40px;
+}
+
+.btn-primary {
+	width: 100%;
+}
+</style>
+
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+<script type="text/javascript"
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+<script type='text/javascript'>
+		$( document ).ready(function() {
+			$('#schedule_date_time').datetimepicker();
+		});
+	</script>
+</head>
+<body>
+	<div align="center">
+		<div class="panel-heading">Create New Schedule</div>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${message}"
+			method="post">
+
+			<table border="0" cellpadding="10">
+				<tr>
+					<td>User Name:</td>
+					<td><input type="text" th:field="*{user_name}" /></td>
+				</tr>
+				<tr>
+					<td>Message Content:</td>
+					<td><textarea rows="5" cols="25" th:field="*{message_content}"></textarea></td>
+				</tr>
+				<tr>
+					<td>Schedule:</td>
+					<td>
+						<div class='input-group date' id='schedule_date_time'>
+							<input type='text' class="form-control"
+								th:field="*{schedule_date_time}" /> <span
+								class="input-group-addon"> <span
+								class="glyphicon glyphicon-calendar"></span>
+							</span>
+						</div>
+
+					</td>
+				</tr>
+				<tr>
+
+					<td colspan="2">
+					<input type="submit" class="btn btn-primary" value="Submit">
+					</td>
+					
+				</tr>
+			</table>
+
+		</form>
+	</div>
+
+
+</body>
